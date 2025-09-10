@@ -1,0 +1,8 @@
+<input type="file" (change)="onFileSelected($event)" accept=".csv" />
+<button (click)="upload()">Upload</button>
+
+<table *ngIf="csvData.length">
+  <tr *ngFor="let row of csvData">
+    <td *ngFor="let cell of row">{{ cell }}</td>
+  </tr>
+</table>
