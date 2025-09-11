@@ -3,6 +3,20 @@
 
 <table *ngIf="csvData.length">
   <tr *ngFor="let row of csvData">
-    <td *ngFor="let cell of row">{{ cell }}</td>
-  </tr>
+    <td> {{ row | json }}</td>
 </table>
+
+<div *ngIf="csvData.length">
+  <button (click)="calculate()">Calculate</button>
+</div>
+
+<div *ngFor="let d of calcData">
+  <p>Time: {{ d.value }}</p>
+  <ul>
+    <li *ngFor="let k of d.key"> Employee ID {{ k }}</li>
+  </ul>
+</div>
+
+<div *ngIf="!calcData.length">
+  <p>No overlap</p>
+</div>
